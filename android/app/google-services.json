@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "28812988014",
+    "project_id": "pnt-3-ecom-poly",
+    "storage_bucket": "pnt-3-ecom-poly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28812988014:android:a4424b045eaa4c0fce607f",
+        "android_client_info": {
+          "package_name": "com.example.e_commarce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2KRvYdShvq9de3QZ0ioiKNFvprM4Ysz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
