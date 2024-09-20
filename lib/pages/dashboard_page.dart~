@@ -1,5 +1,4 @@
 import 'package:e_commarce_app/main.dart';
-import 'package:e_commarce_app/pages/login_page.dart';
 import 'package:e_commarce_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +24,6 @@ class _DashboardPageState extends State<DashboardPage> {
         actions: [
           IconButton(onPressed: () {
             context.read<FirebaseAuthProvider>().logOut();
-            Navigator.pushReplacementNamed(context, LoginPage.routeName);
           }, icon: const Icon(Icons.logout))
         ],
       ),
