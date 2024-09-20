@@ -26,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordContolar = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _errorMsg = '';
+  String _errorMsgAdmin = '';
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(_errorMsg,style: const TextStyle(fontSize: 20),)
+                      Text(_errorMsg,style: const TextStyle(fontSize: 20),),
+                      Text(_errorMsgAdmin,style: const TextStyle(fontSize: 20),),
                     ],
                   ),
                 ),
@@ -112,12 +114,17 @@ class _LoginPageState extends State<LoginPage> {
       final password = _passwordContolar.text;
       EasyLoading.show(status: 'Please wait.... ');
       try{
-        await context.read<FirebaseAuthProvider>().logInAdmin(email, password);
-        Navigator.pushReplacementNamed(context, DashboardPage.routeName);
+       final isAdmin = await context.read<FirebaseAuthProvider>().logInAdmin(email, password);
+       if(isAdmin){
+         Navigator.pushReplacementNamed(context, DashboardPage.routeName);
+       }else{
+         await context.read<FirebaseAuthProvider>().logOut();
+       }
 
       } on FirebaseAuthException  catch(error){ //FirebaseAuthException error pick in firebase
           setState(() {
             _errorMsg= 'Login failed ${error.message!}';
+            _errorMsgAdmin = 'This email is not associated with an admin account. please use a valid email address';
           });
       }finally{
         EasyLoading.dismiss();

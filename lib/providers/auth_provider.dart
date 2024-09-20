@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:e_commarce_app/db/db_helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 
@@ -8,8 +11,10 @@ class FirebaseAuthProvider with ChangeNotifier {
 
   // get massage => null;
 
-  Future<void> logInAdmin (String email, String password) async{
-    await _auth.signInWithEmailAndPassword(email: email, password: password);
+  Future<bool> logInAdmin (String email, String password) async{
+    final credential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+    return DbHelper.isAdmin(credential.user!.uid);
   }
+
   Future<void> logOut ()=> _auth.signOut();
 }
