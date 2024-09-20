@@ -1,7 +1,11 @@
 import 'package:e_commarce_app/firebase_options.dart';
+import 'package:e_commarce_app/pages/category_page.dart';
 import 'package:e_commarce_app/pages/dashboard_page.dart';
 import 'package:e_commarce_app/pages/login_page.dart';
 import 'package:e_commarce_app/pages/luancher_page.dart';
+import 'package:e_commarce_app/pages/new_product_page.dart';
+import 'package:e_commarce_app/pages/order_page.dart';
+import 'package:e_commarce_app/pages/view_product_page.dart';
 import 'package:e_commarce_app/providers/auth_provider.dart';
 import 'package:e_commarce_app/providers/product_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -50,6 +54,10 @@ class MyApp extends StatelessWidget {
         LuancherPage.routeName :(context) => const LuancherPage(),
         LoginPage.routeName : (context) => const LoginPage(),
         DashboardPage.routeName : (context) => const DashboardPage(),
+        CategoryPage.routeName : (context) => const CategoryPage(),
+        NewProductPage.routeName : (context) => const NewProductPage(),
+        ViewProductPage.routeName : (context) => const ViewProductPage(),
+        OrderPage.routeName : (context) => const OrderPage(),
       },
     );
   }

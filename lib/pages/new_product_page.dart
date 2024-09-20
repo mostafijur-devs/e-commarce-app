@@ -1,16 +1,17 @@
 import 'package:e_commarce_app/main.dart';
+import 'package:e_commarce_app/pages/login_page.dart';
 import 'package:e_commarce_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DashboardPage extends StatefulWidget {
-  static const String routeName = '/dashboard';
-  const DashboardPage({super.key});
+class NewProductPage extends StatefulWidget {
+  static const String routeName = '/product';
+  const NewProductPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<NewProductPage> createState() => _NewProductPageState();
 }
-class _DashboardPageState extends State<DashboardPage> {
+class _NewProductPageState extends State<NewProductPage> {
   @override
   void didChangeDependencies() {
 
@@ -20,15 +21,15 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Text('New Product'),
         actions: [
           IconButton(onPressed: () {
-            context.read<FirebaseAuthProvider>().logOut();
+
           }, icon: const Icon(Icons.logout))
         ],
       ),
       body: Center(
-        child: Text('Login DashBroad'),
+        child: Text('Login new product page'),
       ),
     );
   }
