@@ -6,6 +6,8 @@ class FirebaseAuthProvider with ChangeNotifier {
   final _auth =FirebaseAuth.instance;
   User? get currentUser => _auth.currentUser;
 
+  // get massage => null;
+
   Future<void> logInAdmin (String email, String password) async{
     await _auth.signInWithEmailAndPassword(email: email, password: password);
   }

@@ -17,7 +17,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Login'),
+        child: Text('Login DashBroad'),
       ),
     );
   }

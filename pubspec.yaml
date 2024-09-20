@@ -40,6 +40,9 @@ dependencies:
   cloud_firestore:
   firebase_storage:
   cached_network_image:
+  google_fonts:
+  flutter_easyloading:
+
 
 
 
