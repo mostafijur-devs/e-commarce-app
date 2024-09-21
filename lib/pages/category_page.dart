@@ -1,7 +1,10 @@
 import 'package:e_commarce_app/main.dart';
 import 'package:e_commarce_app/pages/login_page.dart';
 import 'package:e_commarce_app/providers/auth_provider.dart';
+import 'package:e_commarce_app/providers/product_provider.dart';
+import 'package:e_commarce_app/utils/widgets_function.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -12,6 +15,8 @@ class CategoryPage extends StatefulWidget {
   State<CategoryPage> createState() => _CategoryPageState();
 }
 class _CategoryPageState extends State<CategoryPage> {
+  String tittle = '';
+
   @override
   void didChangeDependencies() {
 
@@ -28,8 +33,24 @@ class _CategoryPageState extends State<CategoryPage> {
           }, icon: const Icon(Icons.logout))
         ],
       ),
-      body: const Center(
-        child: Text('Login category'),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        showSingleTextInputButton(
+          context: context,
+          title: 'New Category',
+          onSave: (value) async {
+            EasyLoading.show(status: 'Please wait....');
+            await context.read<ProductProvider>().addCategory(value);
+            EasyLoading.dismiss();
+            showMassage(context: context, message: "Category save");// addCategory()
+          },
+        );
+
+      },child: const Icon(Icons.add),),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: ListView(
+        children: [
+          Text(tittle)
+        ],
       ),
     );
   }
