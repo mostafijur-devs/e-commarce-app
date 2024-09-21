@@ -26,5 +26,5 @@ class DbHelper {
   }
   // get all category in database
   static Stream<QuerySnapshot<Map<String, dynamic>>>  getAllCategories() =>
-      _db.collection(_collectionCategory).orderBy('name').snapshots();
+      _db.collection(_collectionCategory).snapshots();
 }

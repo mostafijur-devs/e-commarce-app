@@ -55,7 +55,7 @@ class _CategoryPageState extends State<CategoryPage> {
               title: Text('${index + 1} ${productProvider.categoryList[index].name}'),
               trailing: IconButton(onPressed: () {
 
-              }, icon: const Icon(Icons.delete), color: Colors.red),
+              }, icon: const Icon(Icons.edit), color: Colors.grey),
             ),
           )
       
