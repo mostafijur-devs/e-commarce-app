@@ -53,6 +53,9 @@ class _CategoryPageState extends State<CategoryPage> {
             itemCount: productProvider.categoryList.length,
             itemBuilder: (context, index) => ListTile(
               title: Text('${index + 1} ${productProvider.categoryList[index].name}'),
+              trailing: IconButton(onPressed: () {
+
+              }, icon: const Icon(Icons.delete), color: Colors.red),
             ),
           )
       
