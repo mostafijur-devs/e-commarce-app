@@ -1,11 +1,10 @@
-import 'package:e_commarce_app/main.dart';
-import 'package:e_commarce_app/pages/login_page.dart';
-import 'package:e_commarce_app/providers/auth_provider.dart';
+
 import 'package:e_commarce_app/providers/product_provider.dart';
 import 'package:e_commarce_app/utils/widgets_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
+
 
 class CategoryPage extends StatefulWidget {
   static const String routeName = '/category';
@@ -47,10 +46,16 @@ class _CategoryPageState extends State<CategoryPage> {
 
       },child: const Icon(Icons.add),),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: ListView(
-        children: [
-          Text(tittle)
-        ],
+      body: Consumer<ProductProvider>(builder: (context, productProvider, child) =>
+      productProvider.categoryList.isEmpty ?
+      const Center(child: Text('No category is found')) :
+          ListView.builder(
+            itemCount: productProvider.categoryList.length,
+            itemBuilder: (context, index) => ListTile(
+              title: Text('${index + 1} ${productProvider.categoryList[index].name}'),
+            ),
+          )
+      
       ),
     );
   }
