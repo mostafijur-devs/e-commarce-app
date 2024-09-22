@@ -49,7 +49,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30,),
                 child: Card(
-                  elevation: 10,
+                  elevation: 100,
                   child: CachedNetworkImage(
                     imageUrl: productModel.imageUrl,
                     width: 100,
@@ -126,8 +126,44 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   style: const TextStyle(fontSize: 20),),
 
               ),
-              SwitchListTile(
+              ListTile(
                 title: Text('Product discription : ${productModel.description}',
+                  style: const TextStyle(fontSize: 17),),
+                trailing: IconButton(onPressed: () {
+
+                  showSingleTextInputButton(
+                    context: context,
+                    keyboardType: TextInputType.number,
+                    title: 'Update discription',
+                    positiveText: 'Update',
+                    onSave: (value) {
+                      productProvider.updateSingleProductField(productModel.id!, 'description', value);
+                      showMassage(context: context, message: 'Driscription updated');
+
+                    },);
+
+                }, icon: const Icon(Icons.edit)),
+              ),
+              ListTile(
+                title: Text('Stock : ${productModel.stock}',
+                  style: const TextStyle(fontSize: 17),),
+                trailing: IconButton(onPressed: () {
+
+                  showSingleTextInputButton(
+                    context: context,
+                    keyboardType: TextInputType.number,
+                    title: 'Update discription',
+                    positiveText: 'Update',
+                    onSave: (value) {
+                      productProvider.updateSingleProductField(productModel.id!, 'stock', num.parse(value));
+                      showMassage(context: context, message: 'Stock updated');
+
+                    },);
+
+                }, icon: const Icon(Icons.edit)),
+              ),
+              SwitchListTile(
+                title: Text('Product avalable ',
                   style: const TextStyle(fontSize: 17),),
                 value: productModel.available,
                 onChanged: (value) {
@@ -135,6 +171,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   showMassage(context: context, message: 'status updated');
                 },
               ),
+
 
 
             ],
