@@ -5,6 +5,7 @@ import 'package:e_commarce_app/pages/login_page.dart';
 import 'package:e_commarce_app/pages/luancher_page.dart';
 import 'package:e_commarce_app/pages/new_product_page.dart';
 import 'package:e_commarce_app/pages/order_page.dart';
+import 'package:e_commarce_app/pages/product_details_page.dart';
 import 'package:e_commarce_app/pages/view_product_page.dart';
 import 'package:e_commarce_app/providers/auth_provider.dart';
 import 'package:e_commarce_app/providers/product_provider.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
         NewProductPage.routeName : (context) => const NewProductPage(),
         ViewProductPage.routeName : (context) => const ViewProductPage(),
         OrderPage.routeName : (context) => const OrderPage(),
+        ProductDetailPage.routeName : (context) => const ProductDetailPage(),
       },
     );
   }

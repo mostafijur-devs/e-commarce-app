@@ -7,6 +7,7 @@ showMassage({required BuildContext context, required String message}) {
 showSingleTextInputButton({
   required BuildContext context,
   required String title,
+  TextInputType keyboardType = TextInputType.text,
   String positiveText = 'save',
   String negativeText = 'cancel',
   required Function(String) onSave,
@@ -16,6 +17,7 @@ final controller = TextEditingController();
 showDialog(context: context, builder: (context) => AlertDialog(
   title: Text(title),
   content: TextField(
+    keyboardType: keyboardType,
     controller: controller,
     decoration:  InputDecoration(
       border: const OutlineInputBorder(),

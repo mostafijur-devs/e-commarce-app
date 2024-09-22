@@ -245,7 +245,6 @@ class _NewProductPageState extends State<NewProductPage> {
           price: num.parse(_priceController.text),
           stock: num.parse(_stockController.text),
           description: _descriptionController.text,
-          discount: num.parse(_discountController.text),
           imageUrl: url,);
         await context.read<ProductProvider>().addProduct(productModel);
         showMassage(context: context, message: 'Add new product success');
